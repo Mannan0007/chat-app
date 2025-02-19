@@ -15,9 +15,11 @@ const messageModel = mongoose.Schema(
   }
 );
 
-const message = mongoose.model("Message", messageModel);
+const Message = mongoose.model("Message", messageModel);
 
-module.exports = message;
+export default Message;
+
+// module.exports = message;
 
 //isGroupchat
 //admin

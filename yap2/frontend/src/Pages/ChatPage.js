@@ -1,33 +1,31 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-
+import React, { useState } from 'react'
+import { Box } from '@chakra-ui/react'
+import { ChatState } from '../Context/ChatProvider'
+import SideDrawer from '../components/ui/miscellaneous/SideDrawer';
+import MyChats from '../components/ui/MyChats';
+import ChatBox from '../components/ui/ChatBox';
 const ChatPage = () => {
-  const [chats, setChats] = useState([]);
-  const [error, setError] = useState(null); // For error handling
-
-  const fetchChats = async () => {
-    try {
-      const response = await axios.get("/api/chat"); // Fetch data from the API
-      setChats(response.data); // Set the fetched data to the state
-    } catch (err) {
-      setError("Failed to load chats. Please try again."); // Handle errors gracefully
-      console.error(err);
-    }
-  };
-
-  useEffect(() => {
-    fetchChats(); // Fetch chats when the component mounts
-  }, []);
-
+  const { user } = ChatState();
+  const [fetchAgain,setFetchAgain]=useState(false)
   return (
-    <div>
-      {error ? (
-        <div style={{ color: "red" }}>{error}</div> // Display error message if any
-      ) : (
-        chats.map((chat) => <div key={chat._id}>{chat.chatName}</div>)
-      )}
+    <div style={{width:"100%"}}>
+        {user && <SideDrawer/>}
+<Box 
+  display="flex"  
+  justifyContent={'space-between'} 
+  w={'100%'} 
+  h={'91.5vh'}  
+  p={'10px'} 
+  flexDir={'row'} 
+>
+        {user && <MyChats fetchAgain={fetchAgain} />}
+        {user && (
+          <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+        )}
+      </Box>
+      
     </div>
-  );
-};
+  )
+}
 
-export default ChatPage;
+export default ChatPage

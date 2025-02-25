@@ -1,0 +1,10 @@
+.contact-us-heading h1{
+    display: flex;
+    font-size: 40px;
+    justify-content: center;
+}
+.contact-us-heading h2{
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+}

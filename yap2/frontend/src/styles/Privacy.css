@@ -1,0 +1,64 @@
+.cloud-privacy-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.cloud-privacy-title,
+.cloud-privacy-heading {
+    color: #333;
+}
+
+.cloud-privacy-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.cloud-privacy-heading {
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.cloud-privacy-text {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.cloud-privacy-list {
+    padding-left: 20px;
+}
+
+.cloud-privacy-list li {
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.cloud-privacy-strong {
+    color: #000;
+}
+
+@media (max-width: 600px) {
+    .cloud-privacy-container {
+        padding: 15px;
+    }
+
+    .cloud-privacy-title {
+        font-size: 24px;
+    }
+
+    .cloud-privacy-heading {
+        font-size: 20px;
+    }
+
+    .cloud-privacy-text,
+    .cloud-privacy-list li {
+        font-size: 14px;
+    }
+}

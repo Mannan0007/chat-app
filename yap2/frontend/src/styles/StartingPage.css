@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Geist+Mono:wght@100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Stylish&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Geist+Mono:wght@100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Stylish&display=swap');
+
+
+.rainbow-text {
+  background: linear-gradient(90deg,    blue, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.tagline2{
+  position: relative;
+  left:17pc;
+  bottom: 12pc;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 16px;
+
+}
+
+
+.welcome-line{
+
+  display: flex;
+    font-family: "Edu AU VIC WA NT Pre", serif;
+    margin-left: 35px;
+    margin-top: 30px;
+    font-size: 80px;
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+
+}
+.key-factors {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 80px; /* Reduced gap for better alignment */
+  padding: 2rem;
+  background-color: antiquewhite;
+  height: 30pc;
+}
+
+.elements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* gap: 0.8rem; Better spacing */
+  max-width: 250px;
+}
+
+/* Make Icons Uniform */
+.elements svg {
+  font-size: 3rem; /* Set all icons to the same size */
+  color: #ff6600; /* Add a color theme */
+    margin-bottom: -175px; /* Slightly pull icons closer to the card */
+
+}
+
+.review-heading{
+  margin-top: 40px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 30px;
+}
+.reviews{
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  /* margin-top: 30px; */
+  margin: 30px;
+    flex-wrap: wrap;  /* Allows wrapping for smaller screens */
+
+}
+.reviews a :hover{
+   transform: scale(1.05);  /* Slightly scale up the link */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .key-factors {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+

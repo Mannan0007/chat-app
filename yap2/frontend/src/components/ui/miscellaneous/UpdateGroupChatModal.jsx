@@ -9,7 +9,7 @@ import axios from 'axios';
 
 
 
-const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain,fetchMessages }) => {
+const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
     
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [groupChatName, setGroupChatName] = useState();

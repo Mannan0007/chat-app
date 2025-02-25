@@ -1,0 +1,95 @@
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Pushes logo to left, buttons to right */
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 10px;
+}
+.logoapna {
+    display: flex;
+    align-items: center;
+}
+/* Logo Styling */
+.logoapna .logo {
+    position: relative;
+    left: -170px;
+    max-height: 200px;  /* Adjusts logo height */
+    width: auto; /* Prevents distortion */
+}
+
+
+
+
+.nav-links{
+    display: flex;
+    gap: 40px;
+    color: white;
+    /* justify-content: center; */
+    /* text-align: center; */
+}
+
+/* .nav-links a:hover {
+    text-decoration: underline;
+
+
+} */
+
+
+
+
+/* ✅ Responsive Design */
+
+/* Tablets & Smaller Screens */
+@media (max-width: 1024px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .logoapna .logo {
+        max-height: 50px;
+    }
+
+    .nav-buttons {
+        gap: 10px;
+    }
+
+    .loginbutton,
+    .signupbutton {
+        font-size: 14px;
+        padding: 6px 12px;
+
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        height: auto;
+        padding: 15px;
+        align-items: center;
+    }
+
+    .logoapna .logo {
+        max-height: 40px;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .loginbutton,
+    .signupbutton {
+        width: 100%; /* Full width on small screens */
+        text-align: center;
+    }
+}

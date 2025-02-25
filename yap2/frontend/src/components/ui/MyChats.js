@@ -7,33 +7,43 @@ import { useCallback } from 'react';
 import ChatLoading from './ChatLoading';
 import { getSender } from '../../config/chatLogics';
 import GroupChatModal from './miscellaneous/GroupChatModal';
-const MyChats = (fetchAgain) => {
+const MyChats = ({fetchAgain}) => {
   const [loggedUser, setLoggedUser] = useState();
 
-  const { user, selectedChat, setSelectedChat, chats, setChats } = ChatState();
+  const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
   
   const toast = useToast();
 
-const fetchChats = useCallback(async () => {
-  try {
-    const config = {
-      headers: { Authorization: `Bearer ${user.token}` },
-    };
+  const fetchChats = async () => {
+      // console.log(user._id);
+
+  // if (!user || !user.token) {
+  //   console.error("User not found. Redirecting to login.");
+  //   return;
+  // }
+
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      };
 
     const { data } = await axios.get("http://localhost:2000/api/chat", config);
     console.log("Fetched Chats:", data); // Debugging
     setChats(data);
   } catch (error) {
+    console.error("Fetch Chats Error:", error.response);
     toast({
       title: "Error Occurred!",
-      description: "Failed to load chats",
+      description: error.response?.data?.message || "Failed to load chats",
       status: "error",
       duration: 5000,
       isClosable: true,
       position: "bottom-left",
     });
   }
-}, [user.token, setChats]);
+};
 
 useEffect(() => {
   setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));

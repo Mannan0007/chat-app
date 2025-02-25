@@ -9,13 +9,17 @@ import { useDisclosure } from '@chakra-ui/react';
 import ChatLoading from '../ChatLoading';
 import UserListItem from '../../UserAvatar/UserListItem';
 import axios from 'axios';
+import { getSender } from '../../../config/chatLogics';
+import { Link } from 'react-router-dom';
+import { Badge } from '@chakra-ui/react';
+
 const SideDrawer = () => {
     const [search, setSearch] = useState("")
     const [searchResult, setSearchResult] = useState([])
     const [loading, setLoading] = useState(false)
-    const [loadingChat, setLoadingChat] = useState()
+  const [loadingChat, setLoadingChat] = useState(false);
     
-    const { user,selectedChat, setSelectedChat ,chats,setChats} = ChatState();
+    const { user,setSelectedChat ,chats,setChats,notification,setNotification} = ChatState();
     const navigate  = useNavigate();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const toast = useToast();
@@ -85,12 +89,11 @@ const { data } = await axios.get(`http://localhost:2000/api/user?search=${search
         },
       };
 
-      const data = await axios.post('http://localhost:2000/api/chat', { userId }, config);
+      const {data} = await axios.post('http://localhost:2000/api/chat', { userId }, config);
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
 
 
       setSelectedChat(data);
-      setLoadingChat(data);
       onClose();
     } catch (error) {
        toast({
@@ -102,6 +105,10 @@ const { data } = await axios.get(`http://localhost:2000/api/user?search=${search
         position: "bottom-left",
       });
       
+    }
+    finally {
+          setLoadingChat(false); // ✅ Always stops loading state
+
     }
     
   }
@@ -118,19 +125,61 @@ const { data } = await axios.get(`http://localhost:2000/api/user?search=${search
         borderWidth="5px">
               <Tooltip label="Search Users to chat" hasArrow placement='bottom-end'>
                   <Button variant={'ghost'} onClick={onOpen}> 
-                      <i class="fas fa-search"></i>
-                      <Text d={{base:"none", md:'flex'}} px={'4'}>Search User</Text>
+                      <i className="fas fa-search"></i>
+                      <Text display={{base:"none", md:'flex'}} px={'4'}>Search User</Text>
                   </Button>
               </Tooltip>
 
-              <Text fontSize={'2xl'} fontFamily={'Work-sans'}>Cloud Connet</Text>
+        <Link to={'/home'}>
+        
+        
+        <Text fontSize={'2xl'} fontFamily={'Work-sans'}>Cloud Connet</Text>
+        
+        </Link>
+{/* 
+        <div>
+          <Link to={'/home'} >
+            <Text>About cloud connect</Text>
+          </Link>
+        </div> */}
 
               <div>
-                  <Menu>
-                      <MenuButton p={1}>
-                    <BellIcon  fontSize="2xl" m={1}/>
-                      </MenuButton>
-                  </Menu>
+
+<Menu>
+  <MenuButton p={1} position="relative">
+    {notification.length > 0 && (
+      <Badge
+        colorScheme="red"
+        borderRadius="full"
+        fontSize="0.8em"
+        position="absolute"
+        top="-2px"
+        right="-2px"
+        px={2}
+      >
+        {notification.length}
+      </Badge>
+    )}
+    <BellIcon fontSize="2xl" m={1} />
+  </MenuButton>
+
+  <MenuList pl={2}>
+    {!notification.length && "No new Messages"}
+    {notification.map((notif) => (
+      <MenuItem
+        key={notif._id}
+        onClick={() => {
+          setSelectedChat(notif.chat);
+          setNotification(notification.filter((n) => n !== notif));
+        }}
+      >
+        {notif.chat.isGroupChat
+          ? `New Message in ${notif.chat.chatName}`
+          : `New Message from ${getSender(user, notif.chat.users)}`}
+      </MenuItem>
+    ))}
+  </MenuList>
+</Menu>
 
                   <Menu>
             <MenuButton as={Button} bg="white" rightIcon={<ChevronDownIcon />}>

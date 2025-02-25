@@ -1,0 +1,58 @@
+
+.profile-card {
+  width: 250px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: white;
+  transition: transform 0.3s ease;
+    justify-content: center;
+
+}
+.profile-card img{
+    justify-content: center;
+}
+
+
+
+.profile-card:hover {
+  transform: scale(1.05);
+}
+
+.profile-image {
+    justify-content: center;
+  width: 250px;
+  height: 200px;
+  border-radius: 20%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 5px 0;
+}
+
+.profile-title {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}

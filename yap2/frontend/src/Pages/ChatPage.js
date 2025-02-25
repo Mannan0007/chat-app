@@ -4,9 +4,11 @@ import { ChatState } from '../Context/ChatProvider'
 import SideDrawer from '../components/ui/miscellaneous/SideDrawer';
 import MyChats from '../components/ui/MyChats';
 import ChatBox from '../components/ui/ChatBox';
+
 const ChatPage = () => {
-  const { user } = ChatState();
   const [fetchAgain,setFetchAgain]=useState(false)
+  const { user } = ChatState();
+  
   return (
     <div style={{width:"100%"}}>
         {user && <SideDrawer/>}

@@ -1,0 +1,65 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Gradient Card Container */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full screen height */
+}
+
+/* Gradient Card Styling */
+.gradient-card {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient from orange to pink */
+  border-radius: 15px;
+  padding: 30px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+/* Hover effect for the card */
+.gradient-card:hover {
+  transform: translateY(-10px); /* Slight lift effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Title Styling */
+.card-title {
+  font-size: 44px;
+  font-weight: bold;
+  color: white;
+  /* margin-bottom: 20px; */
+}
+
+/* Card Description Styling */
+.card-description {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 20px;
+  /* line-height: 1.5; */
+}
+
+/* Card Button Styling */
+.card-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #ffffff;
+  color: black;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.card-button:hover {
+  background-color: #eaff5f;
+  color: black;
+}

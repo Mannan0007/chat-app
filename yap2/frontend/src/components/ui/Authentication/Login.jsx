@@ -86,7 +86,7 @@ const [loading, setLoading] = useState(false);
 
 
   return (
-    <VStack spacing="10px">
+    <VStack spacing="10px" height={'410px'}>
       <FormControl id="email" isRequired>
         <FormLabel>Email Address</FormLabel>
         <Input

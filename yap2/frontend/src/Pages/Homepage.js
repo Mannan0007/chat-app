@@ -11,15 +11,18 @@ import {
   Tabs,
 } from "@chakra-ui/react";
 
+
+import '../styles/HomePage.css';
+
 // import { Table,Tabs,Box,Center,Container,Text, } from "@chakra-ui/react";
 import Login from "../components/ui/Authentication/Login";
 import Signup from "../components/ui/Authentication/Signup";
 
 const Homepage = () => {
   return (
-    <Container maxW="xl" centerContent>
+    <Container  maxW="xl" centerContent>
       <Box
-        d="flex"
+        display="flex"
         justifyContent="center"
         p={3}
         bg="white"
@@ -28,8 +31,8 @@ const Homepage = () => {
         borderRadius="lg"
         borderWidth="1px"
       >
-        <Text fontSize="4xl" fontFamily="Work sans" color="black">
-          Yap
+        <Text fontSize="4xl" fontFamily="Work sans" color="black" textAlign={'center'}>
+          Cloud Connect
         </Text>
       </Box>
 

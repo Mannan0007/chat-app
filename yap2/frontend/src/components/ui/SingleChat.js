@@ -15,7 +15,7 @@ import animationData from '../../animations/typing.json'
 const ENDPOINT = 'http://localhost:2000';
 
 var socket, selectedChatCompare;
-const SingleChat = ({fetchAgain, setFetchAgain}) => {
+const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -123,16 +123,20 @@ useEffect(() => {
     selectedChatCompare = selectedChat;
   }
 }, [selectedChat]);
-
+// console.log(notification,"------------")
 
 useEffect(() => {
   socket.on("message received", (newMessageRecieved) => {
-    console.log("🔹 New real-time message received:", newMessageRecieved);
 
     if (!selectedChat || selectedChat._id !== newMessageRecieved.chat._id) {
-      console.log(" Message from another chat, not updating UI");
+
+      if (!notification.includes(newMessageRecieved)) {
+        setNotification([newMessageRecieved, ...notification]);
+          setFetchAgain(!fetchAgain);
+      }
+      // console.log(" Message from another chat, not updating UI");
     } else {
-      console.log("✅ Message belongs to the current chat, updating UI");
+      // console.log("Message belongs to the current chat, updating UI");
       setMessages((prevMessages) => [...prevMessages, newMessageRecieved]);
     }
   });
@@ -196,10 +200,10 @@ useEffect(() => {
                       ) : (
                               <>
                   {selectedChat.chatName.toUpperCase()}
-                  <UpdateGroupChatModal
+                 <UpdateGroupChatModal
+                    fetchMessages={fetchMessages}
                     fetchAgain={fetchAgain}
                     setFetchAgain={setFetchAgain}
-                    fetchMessages={fetchMessages} 
                   />
                                   
                               </>

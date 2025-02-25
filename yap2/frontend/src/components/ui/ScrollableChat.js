@@ -10,6 +10,16 @@ const ScrollableChat = ({ messages }) => {
   
     <>
       
+       <div
+      style={{
+        maxHeight: '400px', // Adjust the height as needed
+        overflowY: 'auto',  // Enable vertical scrolling
+        padding: '10px',
+      }}
+    >
+
+
+
 {messages &&
         messages.map((m, i) => (
           <div style={{ display: "flex" }} key={m._id}>
@@ -43,6 +53,7 @@ const ScrollableChat = ({ messages }) => {
           </div>
         ))}
       
+</div>
 
       </>
 

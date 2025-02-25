@@ -13,7 +13,6 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import ChatProvider from "../../../Context/ChatProvider";
 import { ChatState } from "../../../Context/ChatProvider";
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -77,6 +76,9 @@ const [loading, setLoading] = useState(false);
         isClosable: true,
         position: "bottom",
       });
+    }
+    finally {
+      setLoading(false);
     }
   }
 

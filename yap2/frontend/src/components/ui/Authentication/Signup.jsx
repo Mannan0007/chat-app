@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import {
   Stack,
   HStack,
@@ -13,7 +13,9 @@ import {
 } from "@chakra-ui/react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -28,14 +30,14 @@ const Signup = () => {
   // const history = useHistory();
 
   const toast=useToast()
-
+  const navigate = useNavigate();
   const handlePasswordToggle = () => setShowPassword(!showPassword);
   const handleConfirmPasswordToggle = () =>
     setShowConfirmPassword(!showConfirmPassword);
 
   const submitHandler = async () => {
     setLoading(true);
-    if (!name || !email || password || confirmPassword) {
+    if (!name || !email || !password || !confirmPassword) {
       toast({
         title: "Please fill all the fields",
         status: "warning",
@@ -43,7 +45,7 @@ const Signup = () => {
         isClosable: true,
         position: "bottom",
       });
-      setLoading(true);
+        setLoading(false);
       return;
     }
     if (password !== confirmPassword) {
@@ -56,6 +58,8 @@ const Signup = () => {
       });
       return;
     }
+        console.log(name, email, password, pic);
+
     try {
       const config = {
         headers: {
@@ -63,7 +67,7 @@ const Signup = () => {
           
         },
       };
-      const { data } = await axios.post("/api/user", { name, email, password, pic }, config);
+      const { data } = await axios.post("http://localhost:2000/api/user/register", { name, email, password, pic }, config);
       toast({
         title: "Registration Successfull",
         status: "success",
@@ -74,7 +78,7 @@ const Signup = () => {
       localStorage.setItem('userInfo', JSON.stringify(data));
 
       setLoading(false);
-      useNavigate.push('/chats')
+      navigate('/chats')
     } catch (error) {
       toast({
         title: "Error occured",
@@ -160,7 +164,7 @@ const Signup = () => {
           <Input
             type={showPassword ? "text" : "password"}
             placeholder="Create a password"
-            onChange={(e) => setShowPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           <InputRightElement width="4.5rem">

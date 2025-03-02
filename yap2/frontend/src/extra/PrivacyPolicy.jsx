@@ -1,8 +1,18 @@
 import React from 'react';
+import NavBar from './NavBar';
 import '../styles/Privacy.css';
+import Footer from './Footer';
 
 const PrivacyPolicy = () => {
     return (
+        <>
+            <NavBar />
+            
+            <div className='every'>
+
+
+        
+        
         <div className="cloud-privacy-container">
             <h1 className="cloud-privacy-title">Privacy Policy</h1>
             <p className="cloud-privacy-text"><strong className="cloud-privacy-strong">Effective Date:</strong> [Insert Date]</p>
@@ -63,7 +73,11 @@ const PrivacyPolicy = () => {
             <p className="cloud-privacy-text">
                 If you have any questions about this Privacy Policy, please contact us at mannan.puri0052@gmail.com.
             </p>
-        </div>
+                </div>
+                
+            </div>
+                <Footer/>
+        </>
     );
 };
 

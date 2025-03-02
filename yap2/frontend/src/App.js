@@ -8,7 +8,6 @@ import AboutMe from "./extra/Aboutme";
 import ContactUs from "./extra/ContactUs";
 import PrivacyPolicy from "./extra/PrivacyPolicy";
 
-
 function App() {
   return (
 
@@ -19,7 +18,7 @@ function App() {
   <Route path="/policy" element={<PrivacyPolicy/>} />
   <Route path="/contact-us" element={<ContactUs/>} />
   <Route path="/about-me" element={<AboutMe/>} />
-  <Route path="/chats" element={<ChatPage />} />
+        <Route path="/chats" element={<ChatPage />} />
 </Routes>
 
     </div>

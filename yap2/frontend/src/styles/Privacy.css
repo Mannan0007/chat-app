@@ -1,6 +1,12 @@
+.every{
+    display: flex;
+}
+
+
 .cloud-privacy-container {
     max-width: 800px;
-    margin: 40px auto;
+    /* margin-top: 10pc; */
+    margin: 10pc auto ;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;

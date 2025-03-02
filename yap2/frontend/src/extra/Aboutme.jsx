@@ -38,25 +38,17 @@ const AboutMe = () => {
           <h2 className="intro">Hey there! I'm Mannan Puri</h2>
 
           <div className="content">
+            <div className='lincard'>
+
             <LinCard />
+            </div>
 
             <div className="meracard">
               <ProfileCard
                 name="Mannan"
                 jobTitle="Full Stack Developer"
                 profileImage={dp}
-                socialLinks={[
-                  {
-                    name: "GitHub",
-                    url: "https://github.com/Mannan0007",
-                    img: { git },
-                  },
-                  {
-                    name: "LinkedIn",
-                    url: "https://www.linkedin.com/in/mannan-puri-7665b6207/",
-                    icon: "linkedin-icon.png",
-                  },
-                ]}
+    
               />
             </div>
           </div>

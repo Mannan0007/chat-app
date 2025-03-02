@@ -15,7 +15,8 @@
 
 /* Gradient Card Styling */
 .gradient-card {
-  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient from orange to pink */
+background: linear-gradient(135deg, rgba(255, 126, 95, 0), rgba(254, 180, 123, 0));
+border: solid;
   border-radius: 15px;
   padding: 30px;
   width: 300px;

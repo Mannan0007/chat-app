@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from 'axios'
-// import { useNavigate } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -64,21 +63,29 @@ const Signup = () => {
       const config = {
         headers: {
           "Content-type": "application/json",
-          
         },
       };
-      const { data } = await axios.post("http://localhost:2000/api/user/register", { name, email, password, pic }, config);
+      const { data } = await axios.post(
+        "http://localhost:2000/api/user/register",
+        { name, email, password, pic },
+        config
+      );
       toast({
         title: "Registration Successfull",
         status: "success",
         duration: 5000,
         isClosable: true,
-        position:"bottom",
-      })
-      localStorage.setItem('userInfo', JSON.stringify(data));
+        position: "bottom",
+      });
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      console.log("User Info Saved:", localStorage.getItem("userInfo"));
+      // setUser(data);
 
       setLoading(false);
-      navigate('/chats')
+      setPicLoading(false);
+
+      navigate("/chats");
+      window.location.reload(); // Force reload
     } catch (error) {
       toast({
         title: "Error occured",

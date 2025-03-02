@@ -62,12 +62,12 @@ const StyledWrapper = styled.div`
   }
 
   .flip-card-front {
-    background: linear-gradient(120deg, bisque 60%, rgb(255, 231, 222) 88%, coral 40%);
+    background: linear-gradient(120deg, bisque 60%, rgb(156, 87, 230) 88%, coral 40%);
     color: coral;
   }
 
   .flip-card-back {
-    background: linear-gradient(120deg, coral 60%, rgb(255, 174, 145) 88%, bisque 40%);
+    background: linear-gradient(120deg, coral 60%, rgb(66, 78, 157) 88%, bisque 40%);
     color: white;
     transform: rotateY(180deg);
   }

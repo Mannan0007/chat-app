@@ -1,10 +1,25 @@
-.contact-us-heading h1{
+/* .contact-us-heading {
     display: flex;
     font-size: 40px;
     justify-content: center;
-}
-.contact-us-heading h2{
+    margin: 90px auto;
+} */
+
+.contact-container{
     display: flex;
-    font-size: 20px;
+    flex-direction: column;
+
+}
+
+.container2{
+    display: flex;
     justify-content: center;
+    align-items: center;
+    margin: 120px auto;
+    padding: 10px;
+    background-color: white;    
+    width: 50%;
+    height: 50%;  /* Ensures full screen height */
+    border: solid;
+    border-radius: 10px;
 }

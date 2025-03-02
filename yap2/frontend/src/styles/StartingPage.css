@@ -4,14 +4,18 @@
 
 
 .rainbow-text {
-  background: linear-gradient(90deg,    blue, violet);
+  background: linear-gradient(90deg,    white, violet);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  position: absolute;
+  top: 10pc;
+  /* margin-top: 8pc; */
 }
 .tagline2{
-  position: relative;
-  left:17pc;
-  bottom: 12pc;
+  
+  position: absolute;
+  top: -2pc;
+  right: 10pc;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin-left: 16px;
 
@@ -23,7 +27,7 @@
   display: flex;
     font-family: "Edu AU VIC WA NT Pre", serif;
     margin-left: 35px;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     font-size: 80px;
     background-image: url();
     background-size: cover;
@@ -40,6 +44,9 @@
   padding: 2rem;
   background-color: antiquewhite;
   height: 30pc;
+  border: solid;
+  border-radius: 20px;
+  margin: 30px;
 }
 
 .elements {

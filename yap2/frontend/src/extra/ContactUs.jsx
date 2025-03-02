@@ -6,39 +6,38 @@ import Footer from './Footer';
 const ContactUs = () => {
   return (
     <>
-    
-    <div className='contact-us-heading'>
-<h1>Have something in mind?</h1>
-      <h2>Feel free to contact us </h2>
-         </div>
-      <VStack backgroundColor={'white'} marginBottom={'20px'}  >
-        <FormControl isRequired >
-          <FormLabel>Email</FormLabel>
-          <Input
-            type='email'
-            placeholder='Please Enter your email'
-          />
-        </FormControl>
-        <FormControl  isRequired  >
-          <FormLabel>Your Message or Query</FormLabel>
-          
-          <Textarea height={'240px'} placeholder="Write your message here..." />
-         
-         
-     
-        </FormControl>
+      <NavBar />
 
-        <Button margin={'10px'}  >Send</Button>
+      <div className="contact-body">
+        <div className="contact-container">
+          {/* <div className="contact-us-heading">
+            <h1>
+              Have something in mind? <br />
+              <span id='feelfree'>Feel free to contact us</span>
+            </h1>
+          </div> */}
+          <VStack className="container2">
+            <FormControl isRequired>
+              <FormLabel>Email</FormLabel>
+              <Input type="email" placeholder="Please Enter your email" />
+            </FormControl>
+            <FormControl isRequired>
+              <FormLabel>Your Message or Query</FormLabel>
 
-      </VStack>
+              <Textarea
+                height={"240px"}
+                placeholder="Write your message here..."
+              />
+            </FormControl>
 
-      <Footer/>
+            <Button margin={"10px"}>Send</Button>
+          </VStack>
+        </div>
+      </div>
 
- 
-</>
-
-
-  )
+      <Footer />
+    </>
+  );
 }
 
 export default ContactUs

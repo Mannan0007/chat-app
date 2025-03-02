@@ -13,16 +13,24 @@ const ChatProvider = ({ children }) => {
   const navigate = useNavigate();
 
 
+  // useEffect(() => {
+  //   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  //   if (userInfo && userInfo.token) {
+  //     setUser(userInfo); // ✅ Only set user if valid
+  //   } else {
+  //     localStorage.removeItem("userInfo"); // 🔴 Clear old invalid data
+  //     navigate('/'); // Redirect only if userInfo is missing
+  //   }
+  // }, []);
   useEffect(() => {
-    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    if (userInfo && userInfo.token) {
-      setUser(userInfo); // ✅ Only set user if valid
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+    if (!user) {
+      navigate("/"); // If no user, send back to login
     } else {
-      localStorage.removeItem("userInfo"); // 🔴 Clear old invalid data
-      navigate('/'); // Redirect only if userInfo is missing
+      setUser(user); // Update user state
     }
   }, []);
-  
+
   return (
 <ChatContext.Provider
       value={{

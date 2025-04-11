@@ -2,6 +2,8 @@ import app from "./app.js";
 import connectDB from "./config/db.js";
 import http from "http";
 import { Server } from "socket.io";
+import path from "path";
+import express from 'express'
 connectDB()
 const server = http.createServer(app);
 const PORT = process.env.PORT || 2000;
@@ -16,6 +18,26 @@ const io = new Server(server, {
     origin: "http://localhost:3000", // Update this based on your frontend URL
   },
 });
+
+
+
+//deployment code 
+
+const __dirname1 = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "/yap2/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname1, "yap2", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
+}
+
+
 
 
 io.on("connection", (socket) => {

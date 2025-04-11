@@ -18,6 +18,8 @@ const NavBar = () => {
         <Link to={"/policy"}>Privacy Policy</Link>
         <Link to={"/contact-us"}>Contact Us</Link>
         <Link to={"/about-me"}>About the developer</Link>
+        <Link to={"/about-us"}>About us</Link>
+        <Link to={'/chats'}>Back to chats</Link>
       </div>
     </div>
   );

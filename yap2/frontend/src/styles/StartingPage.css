@@ -20,7 +20,13 @@
   margin-left: 16px;
 
 }
+.starting-content{
+  /* background-color: aqua; */
+  background: rgb(2,0,36);
 
+  /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,91,1) 35%, rgba(0,212,255,1) 100%); */
+
+}
 
 .welcome-line{
 
@@ -71,6 +77,7 @@
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   font-size: 30px;
+  color: #ffff;
 }
 .reviews{
   display: flex;

@@ -1,0 +1,12 @@
+.content-aboutus{
+    /* margin: 45px; */
+    margin-top: 5pc;
+    margin-bottom: 5pc;
+    /* display: flex; */
+    /* justify-content: center; */
+color: black;
+    /* background-color:rgb(2,0,36); */
+    /* border: 5px solid; */
+    border-radius: 20px;
+    padding: 20px;
+}

@@ -7,17 +7,19 @@ import StartingPage from "./extra/StartingPage";
 import AboutMe from "./extra/Aboutme";
 import ContactUs from "./extra/ContactUs";
 import PrivacyPolicy from "./extra/PrivacyPolicy";
+import AboutUs from "./extra/AboutUs";
 
 function App() {
   return (
 
-    <div className="App">
+    <div className="App">     
 <Routes>
   <Route path="/" element={<Homepage />} />
   <Route path="/home" element={<StartingPage />} />
   <Route path="/policy" element={<PrivacyPolicy/>} />
   <Route path="/contact-us" element={<ContactUs/>} />
   <Route path="/about-me" element={<AboutMe/>} />
+  <Route path="/about-us" element={<AboutUs/>} />
         <Route path="/chats" element={<ChatPage />} />
 </Routes>
 

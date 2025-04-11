@@ -11,7 +11,7 @@
   background-attachment: fixed; /* Keeps the image fixed while content scrolls */
   height: 100vh;
   overflow-x: hidden; /* Prevent horizontal scroll */
-
+  /* margin-top: 40px; */
 }
 
 .lincard{
@@ -26,7 +26,8 @@
   font-family: "Arvo", serif;
   /* text-align: center; */
   justify-content: center;
-  margin: 30px;
+  /* margin: 30px; */
+  margin-top: 100px;
 
 }
 

@@ -20,6 +20,7 @@ import dp from '../../src/images/mannan_dp.jpg'
 import LinCard from './LinCard.jsx'
 import ContactButton from './ContactMe.jsx';
 import AnimatedContent from './AnimatedContent.jsx';
+import NavBar from './NavBar.jsx';
 // import vid from '../../src/images/vecteezy_minimal-stars-motion-loop-background-for-project-overlay_2016656.mov'
 
 
@@ -30,6 +31,7 @@ const AboutMe = () => {
   return (
     <>
       <div className="port-bg">
+      <NavBar/>
         <AnimatedContent>
           <div className="mannan-heading">
             <h1>About the Developer</h1>

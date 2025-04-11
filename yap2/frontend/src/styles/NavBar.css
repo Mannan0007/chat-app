@@ -13,17 +13,7 @@
     top: 0;
     z-index: 1000; /* High z-index to keep it above other elements */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */}
-.logoapna {
-    display: flex;
-    align-items: center;
-}
-/* Logo Styling */
-.logoapna .logo {
-    position: relative;
-    left: -170px;
-    max-height: 200px;  /* Adjusts logo height */
-    width: auto; /* Prevents distortion */
-}
+
 
 
 #home{
@@ -38,11 +28,11 @@
     /* text-align: center; */
 }
 
-/* .nav-links a:hover {
-    text-decoration: underline;
+.nav-links a:hover {
+    color: lightgreen;
 
 
-} */
+}
 
 
 

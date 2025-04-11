@@ -30,7 +30,6 @@ const StyledWrapper = styled.div`
     height: ${(props) => props.height};
     perspective: 1000px;
     font-family: sans-serif;
-    
   }
 
   .flip-card-inner {
@@ -46,8 +45,9 @@ const StyledWrapper = styled.div`
     transform: rotateY(180deg);
   }
 
-  .flip-card-front, .flip-card-back {
-    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+  .flip-card-front,
+  .flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -62,14 +62,16 @@ const StyledWrapper = styled.div`
   }
 
   .flip-card-front {
-    background: linear-gradient(120deg, bisque 60%, rgb(156, 87, 230) 88%, coral 40%);
-    color: coral;
+    background: rgba(255, 255, 255, 0.2); /* White with 20% opacity */
+    color: white; /* Solid white text */
+    backdrop-filter: blur(5px); /* Optional: Frosted glass effect */
   }
 
   .flip-card-back {
-    background: linear-gradient(120deg, coral 60%, rgb(66, 78, 157) 88%, bisque 40%);
-    color: white;
+    background: rgba(255, 255, 255, 0.2); /* White with 20% opacity */
+    color: white; /* Solid white text */
     transform: rotateY(180deg);
+    backdrop-filter: blur(5px); /* Optional: Smooth translucent effect */
   }
 
   .skill-logo {

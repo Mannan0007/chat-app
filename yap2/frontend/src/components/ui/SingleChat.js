@@ -11,7 +11,7 @@ import ScrollableChat from './ScrollableChat';
 import Lottie from 'react-lottie'
 import io from 'socket.io-client';
 import animationData from '../../animations/typing.json'
-
+import bgimg from '../../images/chat-background.png'
 const ENDPOINT = 'http://localhost:2000';
 
 var socket, selectedChatCompare;
@@ -171,75 +171,73 @@ useEffect(() => {
     
     
   return (
-      <>
-          {selectedChat ? (
-              <>
-                  <Text
-                   fontSize={{ base: "28px", md: "30px" }}
-                pb={3}
-                px={2}
+    <>
+      {selectedChat ? (
+        <>
+          <Text
+            fontSize={{ base: "28px", md: "30px" }}
+            pb={3}
+            px={2}
             w="100%"
             fontFamily="Work sans"
             display="flex"
             justifyContent={{ base: "space-between" }}
-            alignItems="center"                  
-                  >
-                      <IconButton
-                        d={{ base: "flex", md: "none" }}
-                          icon={<ArrowBackIcon />}
+            alignItems="center"
+          >
+            <IconButton
+              d={{ base: "flex", md: "none" }}
+              icon={<ArrowBackIcon />}
               onClick={() => setSelectedChat("")}
-                      />
+            />
 
-                      {!selectedChat.isGroupChat ? (
-                          <>
-                              {getSender(user, selectedChat.users)}
-                <ProfileModal
-                  user={getSenderFull(user, selectedChat.users)} />
-                          
-                          </>
-                      ) : (
-                              <>
-                  {selectedChat.chatName.toUpperCase()}
-                 <UpdateGroupChatModal
-                    fetchMessages={fetchMessages}
-                    fetchAgain={fetchAgain}
-                    setFetchAgain={setFetchAgain}
-                  />
-                                  
-                              </>
-                      )}
+            {!selectedChat.isGroupChat ? (
+              <>
+                {getSender(user, selectedChat.users)}
+                <ProfileModal user={getSenderFull(user, selectedChat.users)} />
+              </>
+            ) : (
+              <>
+                {selectedChat.chatName.toUpperCase()}
+                <UpdateGroupChatModal
+                  fetchMessages={fetchMessages}
+                  fetchAgain={fetchAgain}
+                  setFetchAgain={setFetchAgain}
+                />
+              </>
+            )}
+          </Text>
 
-
-                  </Text>
-
-                  <Box
-                   display="flex"
+          <Box
+            display="flex"
             flexDir="column"
             justifyContent="flex-end"
             p={3}
-            bg="#E8E8E8"
+            // bg={bgimg}
             w="100%"
             h="100%"
             borderRadius="lg"
             overflowY="hidden"
-          >
-            
+            backgroundImage={`url(${bgimg})`} // Set background image
+            // backgroundSize="cover" // Cover the full box
+            backgroundPosition="center" // Center the image
+            backgroundColor="rgba(0, 0, 0, 0.5)" // Dark semi-transparent overlay
+            backgroundBlendMode="overlay" // Blend the color with the image
+          
+             >
             {loading ? (
               <Spinner
-              size="xl"
+                size="xl"
                 w={20}
                 h={20}
                 alignSelf="center"
                 margin="auto"
-              
               />
             ) : (
-                <div className='messages'>
-                  <ScrollableChat messages={messages } />
-                  
-            </div>
-            
+              <div className="messages">
+                <ScrollableChat messages={messages} />
+              </div>
             )}
+
 
 
             <FormControl
@@ -247,9 +245,11 @@ useEffect(() => {
               id="first-name"
               isRequired
               mt={3}
-            >
+              // backgroundColor={'grey'}
+              color={'white'}
+              >
               {istyping ? (
-               <div>
+                <div>
                   <Lottie
                     options={defaultOptions}
                     // height={50}
@@ -266,24 +266,24 @@ useEffect(() => {
                 placeholder="Enter a message.."
                 onChange={typingHandler}
                 value={newMessage}
-              />
+                />
             </FormControl>
-                      
-                  </Box>
-              </>
-              
-
-
-          ) : (
-                 <Box display="flex" alignItems="center" justifyContent="center" h="100%">
+          </Box>
+        </>
+      ) : (
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          h="100%"
+        >
           <Text fontSize="3xl" pb={3} fontFamily="Work sans">
             Click on a user to start chatting
           </Text>
-        </Box>  
+        </Box>
       )}
-      
-      </>
-  )
+    </>
+  );
 }
 
 export default SingleChat

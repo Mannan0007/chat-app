@@ -1,5 +1,10 @@
 {
   "dependencies": {
     "colors": "^1.4.0"
+  },
+  "scripts": {
+    "start": "node yap/server.js",
+    "server": "nodemon yap/server.js",
+    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend"
   }
 }
